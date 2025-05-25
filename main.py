@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # Load data once
-with open("marks.json") as f:
+with open("q-vercel-python.json") as f:
     data = json.load(f)
 
 @app.get("/api")
