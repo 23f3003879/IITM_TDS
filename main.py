@@ -19,7 +19,12 @@ with open("q-vercel-python.json") as f:
 
 @app.get("/api")
 def get_marks(name: list[str] = []):
-    return {"marks": [data.get(n, None) for n in name]}
+    result = []
+    for n in name:
+        # Search for the student with the given name
+        found = next((student for student in data["students"] if student["name"] == n), None)
+        result.append(found)
+    return {"marks": result}
 
 @app.get("/api/debug")
 def debug():
