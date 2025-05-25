@@ -20,3 +20,7 @@ with open("q-vercel-python.json") as f:
 @app.get("/api")
 def get_marks(name: list[str] = []):
     return {"marks": [data.get(n, None) for n in name]}
+
+@app.get("/api/debug")
+def debug():
+    return {"keys": list(data.keys())}
